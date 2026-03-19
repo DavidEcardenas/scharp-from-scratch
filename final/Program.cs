@@ -27,7 +27,7 @@
                             challenge1.Run();
                             break;
 
-                     /*   case 2:
+                        case 2:
                             var challenge2 = new Challenge2();
                             challenge2.Run();
                             break;
@@ -37,7 +37,7 @@
                             challenge3.Run();
                             break;
 
-                        case 4:
+                      case 4:
                             var challenge4 = new Challenge4();
                             challenge4.Run();
                             break;
@@ -47,7 +47,7 @@
                             challenge5.Run();
                             break;
 
-                        case 6:
+                       /*   case 6:
                             var challenge6 = new Challenge6();
                             challenge6.Run();
                             break;
