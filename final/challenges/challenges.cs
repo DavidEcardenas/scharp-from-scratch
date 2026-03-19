@@ -92,7 +92,7 @@ namespace itm.csharp.basic
             }
         }
     }
-     public class Challenge5
+    public class Challenge5
     {
         public void Run()
         {
@@ -132,4 +132,134 @@ namespace itm.csharp.basic
             }
         }
     }
+    public class Challenge6
+    {
+        public void Run()
+        {
+            Console.WriteLine("Descripción:En este ejercicio se Solicita al usuario su salario anual y, si este excede los 12000, muestra el impuesto a pagar que es el 15% del excedente. ");
+            Console.WriteLine("Ingrese su salario anual:");
+            if (double.TryParse(Console.ReadLine(), out double salario))
+            {
+                if (salario > 12000)
+                {
+                    double excedente = salario - 12000;
+                    double impuesto = excedente * 0.15;
+                    Console.WriteLine($"Resultado: {impuesto:F0}");
+                }
+                else
+                {
+                    Console.WriteLine("Resultado: No debe impuestos.");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Entrada no válida");
+            }
+        }
+    }
+
+    public class Challenge7
+    {
+        public void Run()
+        {
+            Console.WriteLine("Descripción:En este ejercicio se Solicita dos números y muestra el residuo de la división del primero entre el segundo.");
+            Console.WriteLine("Ingrese el primer número:");
+            if (!int.TryParse(Console.ReadLine(), out int num1))
+            {
+                Console.WriteLine("Entrada no válida");
+                return;
+            }
+
+            Console.WriteLine("Ingrese el segundo número:");
+            if (!int.TryParse(Console.ReadLine(), out int num2))
+            {
+                Console.WriteLine("Entrada no válida");
+                return;
+            }
+
+            if (num2 == 0)
+            {
+                Console.WriteLine("No se puede dividir por cero");
+                return;
+            }
+
+            Console.WriteLine($"Resultado: {num1 % num2}");
+        }
+    }
+
+    public class Challenge8
+    {
+        public void Run()
+        {
+            int suma = 0;
+            for (int i = 1; i <= 50; i++)
+            {
+                if (i % 2 == 0)
+                    suma += i;
+            }
+            Console.WriteLine($"Resultado: {suma}");
+        }
+    }
+
+    public class Challenge9
+    {
+        public void Run()
+        {
+            Console.WriteLine("Descripción:En este ejercicio se Solicita al usuario los valores para dos fracciones y muestra la diferencia entre esas fracciones. ");
+            Console.WriteLine("Ingrese el numerador de la primera fracción:");
+            if (!int.TryParse(Console.ReadLine(), out int num1)) return;
+
+            Console.WriteLine("Ingrese el denominador de la primera fracción:");
+            if (!int.TryParse(Console.ReadLine(), out int den1) || den1 == 0) return;
+
+            Console.WriteLine("Ingrese el numerador de la segunda fracción:");
+            if (!int.TryParse(Console.ReadLine(), out int num2)) return;
+
+            Console.WriteLine("Ingrese el denominador de la segunda fracción:");
+            if (!int.TryParse(Console.ReadLine(), out int den2) || den2 == 0) return;
+
+            // Calcular diferencia: a/b - c/d = (a*d - c*b)/(b*d)
+            int numerador = num1 * den2 - num2 * den1;
+            int denominador = den1 * den2;
+
+            // Simplificar
+            int mcd = MCD(Math.Abs(numerador), Math.Abs(denominador));
+            numerador /= mcd;
+            denominador /= mcd;
+
+            if (numerador == 0)
+                Console.WriteLine("Resultado: 0");
+            else if (denominador == 1)
+                Console.WriteLine($"Resultado: {numerador}");
+            else
+                Console.WriteLine($"Resultado: {numerador}/{denominador}");
+        }
+
+        private int MCD(int a, int b)
+        {
+            while (b != 0)
+            {
+                int temp = b;
+                b = a % b;
+                a = temp;
+            }
+            return a;
+        }
+    }
+
+    public class Challenge10
+    {
+        public void Run()
+        {
+            Console.WriteLine("Descripción:En este ejercicio se Pide una palabra al usuario y muestra la longitud de esa palabra. ");
+            Console.WriteLine("Ingrese una palabra:");
+            string? palabra = Console.ReadLine();
+
+            if (!string.IsNullOrEmpty(palabra))
+                Console.WriteLine($"Resultado: {palabra.Length}");
+            else
+                Console.WriteLine("Entrada no válida");
+        }
+    }
+
 }

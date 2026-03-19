@@ -47,12 +47,12 @@
                             challenge5.Run();
                             break;
 
-                       /*   case 6:
+                        case 6:
                             var challenge6 = new Challenge6();
                             challenge6.Run();
                             break;
 
-                        case 7:
+                         case 7:
                             var challenge7 = new Challenge7();
                             challenge7.Run();
                             break;
@@ -67,12 +67,12 @@
                             challenge9.Run();
                             break;
 
-                        case 10:
+                      case 10:
                             var challenge10 = new Challenge10();
                             challenge10.Run();
                             break;
 
-                        case 11:
+                       /*    case 11:
                             var challenge11 = new Challenge11();
                             challenge11.Run();
                             break;
