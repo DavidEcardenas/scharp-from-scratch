@@ -8,7 +8,7 @@
             string? nombre = Console.ReadLine(); // Usar string? para permitir null
             Console.WriteLine($"Hola, {nombre ?? "Usuario"}! Por favor, elige un ejercicio del siguiente menú:");
             Menu.MostrarMenu();
-            
+
             while (true)
             {
                 string? entrada = Console.ReadLine(); // Quitar .ToLower() aquí
@@ -17,7 +17,7 @@
                     Console.WriteLine("¡Hasta luego!");
                     break; // Salir del bucle
                 }
-                
+
                 if (int.TryParse(entrada, out int eleccion) && eleccion >= 1 && eleccion <= 15)
                 {
                     switch (eleccion)
@@ -37,7 +37,7 @@
                             challenge3.Run();
                             break;
 
-                      case 4:
+                        case 4:
                             var challenge4 = new Challenge4();
                             challenge4.Run();
                             break;
@@ -52,7 +52,7 @@
                             challenge6.Run();
                             break;
 
-                         case 7:
+                        case 7:
                             var challenge7 = new Challenge7();
                             challenge7.Run();
                             break;
@@ -67,12 +67,12 @@
                             challenge9.Run();
                             break;
 
-                      case 10:
+                        case 10:
                             var challenge10 = new Challenge10();
                             challenge10.Run();
                             break;
 
-                       /*    case 11:
+                        case 11:
                             var challenge11 = new Challenge11();
                             challenge11.Run();
                             break;
@@ -95,14 +95,14 @@
                         case 15:
                             var challenge15 = new Challenge15();
                             challenge15.Run();
-                            break; */
+                            break;
 
                         default:
                             Console.WriteLine("Ejercicio no implementado");
                             break;
                     }
-                    
-                    Console.WriteLine("Presiona una tecla para continuar...");
+
+                    Console.WriteLine("Saliendo......");
                     Console.ReadKey();
                     Console.Clear();
                     Menu.MostrarMenu();

@@ -5,7 +5,7 @@ namespace itm.csharp.basic
     {
         public void Run()
         {
-            Console.WriteLine("Descripción:En este ejercicio se  Solicita al usuario un número y eleva este número al cuadrado solo si es positivo.");
+            Console.WriteLine("Descripción:En este ejercicio se solicita al usuario un número y eleva este número al cuadrado solo si es positivo.");
 
             Console.WriteLine("Ingrese un número:");
             if (int.TryParse(Console.ReadLine(), out int num))
@@ -30,7 +30,7 @@ namespace itm.csharp.basic
     {
         public void Run()
         {
-            Console.WriteLine("Descripción:En este ejercicio se Solicita al usuario dos números. Si el primero es mayor, devuelva su doble, de lo contrario devuelva el triple del segundo.");
+            Console.WriteLine("Descripción:En este ejercicio se solicita al usuario dos números. Si el primero es mayor, devuelva su doble, de lo contrario devuelva el triple del segundo.");
             Console.WriteLine("Ingrese el primer número:");
             if (!int.TryParse(Console.ReadLine(), out int num1))
             {
@@ -58,7 +58,7 @@ namespace itm.csharp.basic
     {
         public void Run()
         {
-            Console.WriteLine("Descripción:En este ejercicio se  Pide al usuario un número. Si es positivo, devuelve su raíz cuadrada, de lo contrario, devuelve su cuadrado.");
+            Console.WriteLine("Descripción:En este ejercicio se  pide al usuario un número. Si es positivo, devuelve su raíz cuadrada, de lo contrario, devuelve su cuadrado.");
             Console.WriteLine("Ingrese un número:");
             if (int.TryParse(Console.ReadLine(), out int num))
             {
@@ -79,7 +79,7 @@ namespace itm.csharp.basic
     {
         public void Run()
         {
-            Console.WriteLine("Descripción:En este ejercicio se Pide al usuario el radio de un círculo y calcula su perímetro.");
+            Console.WriteLine("Descripción:En este ejercicio se pide al usuario el radio de un círculo y calcula su perímetro.");
             Console.WriteLine("Ingrese el radio del círculo:");
             if (double.TryParse(Console.ReadLine(), out double radio))
             {
@@ -96,7 +96,7 @@ namespace itm.csharp.basic
     {
         public void Run()
         {
-            Console.WriteLine("Descripción:En este ejercicio se Solicita al usuario un número entre 1 y 7 y muestra el día de la semana correspondiente, pero solo considerando los días laborables. ");
+            Console.WriteLine("Descripción:En este ejercicio se solicita al usuario un número entre 1 y 7 y muestra el día de la semana correspondiente, pero solo considerando los días laborables. ");
             Console.WriteLine("Ingrese un número del 1 al 7:");
             if (int.TryParse(Console.ReadLine(), out int num))
             {
@@ -136,7 +136,7 @@ namespace itm.csharp.basic
     {
         public void Run()
         {
-            Console.WriteLine("Descripción:En este ejercicio se Solicita al usuario su salario anual y, si este excede los 12000, muestra el impuesto a pagar que es el 15% del excedente. ");
+            Console.WriteLine("Descripción:En este ejercicio se solicita al usuario su salario anual y, si este excede los 12000, muestra el impuesto a pagar que es el 15% del excedente. ");
             Console.WriteLine("Ingrese su salario anual:");
             if (double.TryParse(Console.ReadLine(), out double salario))
             {
@@ -162,7 +162,7 @@ namespace itm.csharp.basic
     {
         public void Run()
         {
-            Console.WriteLine("Descripción:En este ejercicio se Solicita dos números y muestra el residuo de la división del primero entre el segundo.");
+            Console.WriteLine("Descripción:En este ejercicio se solicita dos números y muestra el residuo de la división del primero entre el segundo.");
             Console.WriteLine("Ingrese el primer número:");
             if (!int.TryParse(Console.ReadLine(), out int num1))
             {
@@ -205,7 +205,7 @@ namespace itm.csharp.basic
     {
         public void Run()
         {
-            Console.WriteLine("Descripción:En este ejercicio se Solicita al usuario los valores para dos fracciones y muestra la diferencia entre esas fracciones. ");
+            Console.WriteLine("Descripción:En este ejercicio se solicita al usuario los valores para dos fracciones y muestra la diferencia entre esas fracciones. ");
             Console.WriteLine("Ingrese el numerador de la primera fracción:");
             if (!int.TryParse(Console.ReadLine(), out int num1)) return;
 
@@ -251,7 +251,7 @@ namespace itm.csharp.basic
     {
         public void Run()
         {
-            Console.WriteLine("Descripción:En este ejercicio se Pide una palabra al usuario y muestra la longitud de esa palabra. ");
+            Console.WriteLine("Descripción:En este ejercicio se pide una palabra al usuario y muestra la longitud de esa palabra. ");
             Console.WriteLine("Ingrese una palabra:");
             string? palabra = Console.ReadLine();
 
@@ -262,4 +262,120 @@ namespace itm.csharp.basic
         }
     }
 
+    public class Challenge11
+    {
+        public void Run()
+        {
+            Console.WriteLine("Descripción:En este ejercicio se pide al usuario cuatro números y muestra el promedio. ");
+            double suma = 0;
+            for (int i = 1; i <= 4; i++)
+            {
+                Console.WriteLine($"Ingrese el número {i}:");
+                if (double.TryParse(Console.ReadLine(), out double num))
+                    suma += num;
+                else
+                {
+                    Console.WriteLine("Entrada no válida");
+                    return;
+                }
+            }
+
+            double promedio = suma / 4;
+            Console.WriteLine($"Resultado: {promedio:F0}".Replace(',', '.'));
+        }
+    }
+
+    public class Challenge12
+    {
+        public void Run()
+        {
+            Console.WriteLine("Descripción:En este ejercicio se pide al usuario cinco números y muestra el más pequeño.  ");
+            int? menor = null;
+
+            for (int i = 1; i <= 5; i++)
+            {
+                Console.WriteLine($"Ingrese el número {i}:");
+                if (int.TryParse(Console.ReadLine(), out int num))
+                {
+                    if (menor == null || num < menor)
+                        menor = num;
+                }
+                else
+                {
+                    Console.WriteLine("Entrada no válida");
+                    return;
+                }
+            }
+
+            Console.WriteLine($"Resultado: {menor}");
+        }
+    }
+
+    public class Challenge13
+    {
+        public void Run()
+        {
+            Console.WriteLine("Descripción:En este ejercicio se pide una palabra al usuario y devuelve el número de vocales en esa palabra.");
+            Console.WriteLine("Ingrese una palabra:");
+            string? palabra = Console.ReadLine();
+
+            if (string.IsNullOrEmpty(palabra))
+            {
+                Console.WriteLine("Entrada no válida");
+                return;
+            }
+
+            int contador = 0;
+            palabra = palabra.ToLower();
+
+            foreach (char c in palabra)
+            {
+                if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u')
+                    contador++;
+            }
+
+            Console.WriteLine($"Resultado: {contador}");
+        }
+    }
+
+    public class Challenge14
+    {
+        public void Run()
+        {
+            Console.WriteLine("Descripción:En este ejercicio se pide un número al usuario y devuelve el factorial de ese número. ");
+            Console.WriteLine("Ingrese un número:");
+            if (int.TryParse(Console.ReadLine(), out int num) && num >= 0)
+            {
+                long factorial = 1;
+                for (int i = 1; i <= num; i++)
+                {
+                    factorial *= i;
+                }
+                Console.WriteLine($"Resultado: {factorial}");
+            }
+            else
+            {
+                Console.WriteLine("Entrada no válida o número negativo");
+            }
+        }
+    }
+    public class Challenge15
+    {
+        public void Run()
+        {
+            Console.WriteLine("Descripción:En este ejercicio se pide un número al usuario y verifica si está en el rango de 10 a 20 (ambos incluidos). ");
+            Console.WriteLine("Ingrese un número:");
+            if (int.TryParse(Console.ReadLine(), out int num))
+            {
+                if (num >= 10 && num <= 20)
+                    Console.WriteLine("Resultado: Está en el rango.");
+                else
+                    Console.WriteLine("Resultado: Fuera del rango.");
+            }
+            else
+            {
+                Console.WriteLine("Entrada no válida");
+            }
+        }
+    }
 }
